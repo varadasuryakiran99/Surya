@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portfolio</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+/* HEADER */
+header {
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+header img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 3px solid white;
+    transition: 0.3s;
+}
+
+header img:hover {
+    transform: scale(1.1);
+}
+
+/* NAVBAR */
+nav {
+    background: #222;
+    padding: 12px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    margin: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ffcc00;
+}
+
+/* SECTIONS */
+section {
+    padding: 20px;
+    margin: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+section:hover {
+    transform: translateY(-5px);
+}
+
+h2 {
+    color: #764ba2;
+}
+
+/* SKILLS */
+.skills span {
+    display: inline-block;
+    background: linear-gradient(135deg, #43cea2, #185a9d);
+    color: white;
+    padding: 8px 15px;
+    margin: 5px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.skills span:hover {
+    background: linear-gradient(135deg, #ff512f, #dd2476);
+    transform: scale(1.1);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 12px;
+    background: #222;
+    color: white;
+}
+
+/* TYPING EFFECT */
+#typing::after {
+    content: "|";
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<img src="https://res.cloudinary.com/dopivyapc/image/upload/v1777256687/IMG-20260424-WA0006_ommgzb.jpg">
+<h1>VARADA SURYA KIRAN</h1>
+
+<!-- TYPING TEXT -->
+<p><span id="typing"></span></p>
+</header>
+
+<nav>
+<a href="#bio">Bio</a>
+<a href="#skills">Skills</a>
+<a href="#experience">Experience</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<section id="bio">
+<h2>About Me</h2>
+<p>
+Hello! I am a passionate web developer currently studying engineering.
+I enjoy building websites and learning new technologies like Machine Learning
+and Cyber Security.
+</p>
+</section>
+
+<section id="skills">
+<h2>Skills</h2>
+<div class="skills">
+<span>HTML</span>
+<span>CSS</span>
+<span>JavaScript</span>
+<span>Python</span>
+<span>Machine Learning</span>
+</div>
+</section>
+
+<section id="experience">
+<h2>Experience</h2>
+<ul>
+<li>Participated in Hackathons</li>
+</ul>
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+<p>Email: sk9313810@gmail.com</p>
+<p>Phone: 7794989222</p>
+<p>LinkedIn: https://www.linkedin.com/in/surya-kiran-varada-3b4540348/</p>
+</section>
+
+<footer>
+<p>© 2026 VARADA SURYA KIRAN | Portfolio</p>
+</footer>
+
+<!-- TYPING SCRIPT -->
+<script>
+const textArray = [
+    "Web Developerr",
+    "Studentt",
+    "Tech Enthusiastt",
+    "Machine Learning Learnerr"
+];
+
+let index = 0;
+let charIndex = 0;
+let currentText = "";
+let isDeleting = false;
+
+function typeEffect() {
+    const typing = document.getElementById("typing");
+
+    if (index >= textArray.length) index = 0;
+
+    currentText = textArray[index];
+
+    if (!isDeleting) {
+        typing.textContent = currentText.substring(0, charIndex++);
+    } else {
+        typing.textContent = currentText.substring(0, charIndex--);
+    }
+
+    if (!isDeleting && charIndex === currentText.length) {
+        isDeleting = true;
+        setTimeout(typeEffect, 1000);
+        return;
+    }
+
+    if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        index++;
+    }
+
+    setTimeout(typeEffect, isDeleting ? 50 : 100);
+}
+
+document.addEventListener("DOMContentLoaded", typeEffect);
+</script>
+
+</body>
+</html>
